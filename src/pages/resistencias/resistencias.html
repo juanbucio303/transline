@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ResistenciasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Conductores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card ion-button *ngFor="let dato of dataRes" outline>
+    <ion-avatar item-start>
+      <!-- <ion-icon ios="ios-person" md="md-person"></ion-icon> -->
+      <img src="">
+    </ion-avatar>
+  <ion-item >
+    <h2>{{dato.nombre}}</h2>
+    <!-- <p>November 5, 1955</p> -->
+  </ion-item>
+  <button ion-button outline full (click)="updateRes(dato.id_resistencia,dato.estado)" >
+    <ion-icon color="secondary" *ngIf="dato.estado==2" ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+    <ion-icon color="danger" *ngIf="dato.estado==1" ios="ios-close-circle" md="md-close-circle"></ion-icon>
+  </button>
+</ion-card>
+</ion-content>

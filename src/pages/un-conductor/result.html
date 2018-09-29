@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Resultados</h2>
+
+<p id="demo"></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.1/math.min.js"></script>
+<script type="text/javascript">
+let Bckm=0.000072963,xlkm=16.9469,Rcakm=4.5592;
+let vol=110,poteR=25,facP=20;
+let j=math.complex(0,1);
+let Ir=(poteR*(1e+6))/(math.sqrt(3)*(vol*(1e+3))*(facP));
+// console.log(Ir);
+let ang=math.acos(facP);
+// console.log(ang);
+// let a= Ir*math.cos(ang);
+// let b= math.multiply(math.multiply(Ir ,math.sin(ang)),j);
+let Irr=math.add(Ir*math.cos(ang),math.multiply(math.multiply(Ir ,math.sin(ang)),j));
+// console.log(Irr);
+let Vr=vol/math.sqrt(3);
+// console.log(Vr);
+let Yc=math.multiply(Bckm,j);
+// console.log(Yc);
+let Xl=math.multiply(xlkm,j);
+// console.log(Xl);
+let Z=math.add(Rcakm,Xl);
+// console.log(Z);
+let Zc=math.sqrt(math.divide(Z,Yc));
+// console.log(Zc);
+let Yx=math.sqrt(math.multiply(Z,Yc));
+// console.log(Yx);
+let A=math.cosh(Yx);
+// console.log(A);
+let B=math.multiply(Zc,(math.sinh(Yx)));
+// console.log(B);
+let C=math.multiply(math.divide(1,Zc),math.sinh(Yx));
+// console.log(C);
+let D=A;
+// console.log(D);
+let Vs=math.add(math.multiply(A,math.multiply(Vr,(1e+3))),math.multiply(B,Irr));
+// console.log(Vs);
+let Is=math.add(math.multiply(C,math.multiply(Vr,(1e+3))),math.multiply(D,Irr));
+// console.log(Is);
+let absVs=math.abs(Vs);
+// let absIs=math.abs(Vs);
+let Isa=math.abs(Is);
+// console.log(Isa);
+let Pe=math.multiply(3,math.multiply(math.pow(Isa,2),Rcakm));
+// console.log(Pe);
+let Rv=math.multiply(math.divide(math.subtract(math.abs(Vs),math.multiply(Vr,1e3)),math.multiply(Vr,1e3)),100);
+// console.log(Rv);
+
+let a2=math.add(math.multiply(poteR,1e+6),Pe);
+// console.log(a2);
+
+let n=math.multiply(math.divide(math.multiply(poteR,1e+6),a2),100);
+// console.log(n);
+
+let angIr=math.multiply(ang,math.divide(180,math.pi));
+// console.log(angIr);
+Vs+="";
+Is+="";
+var resVs = Vs.split("+"),resIs = Is.split("+");
+var realVs=resVs[0],realIs=resIs[0];
+var imgVs=resVs[1],imgIs=resIs[1];
+imgVs = imgVs.substring(0, imgVs.length-1);
+imgIs = imgIs.substring(0, imgIs.length-1);
+// document.getElementById("demo").innerHTML = imgIs+"  "+realIs;
+let angVs=math.multiply(math.atan2(imgVs,realVs),math.divide(180,math.pi));
+// console.log("Vs:"+Vs);
+// console.log("atan2Vs: "+angVs);
+let angIs=math.multiply(math.atan2(imgIs,realIs),math.divide(180,math.pi));
+// console.log("atan2Is: "+angIs);
+
+
+// magnitud
+let IR=math.abs(Ir);
+// console.log(IR);
+let VS=absVs;
+// console.log(VS);
+let IS=Isa;
+// console.log(IS);
+console.log("Vr: "+Vr);
+console.log("IR: "+IR);
+console.log("VS: "+VS);
+console.log("IS: "+IS);
+console.log("angIr: "+angIr);
+console.log("angVs: "+angVs);
+console.log("angIs: "+angIs);
+console.log("Pe: "+Pe);
+console.log("n: "+n);
+console.log("Rv: "+Rv);
+
+</script>
+
+</body>
+</html>

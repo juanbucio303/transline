@@ -1,0 +1,84 @@
+<!--
+  Generated template for the MasDeDosConductoresPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>masDeDosConductores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Conductor</ion-label>
+    <ion-select [(ngModel)]="datRes">
+      <ion-option value="" selected>Selecciona una opcion</ion-option>
+      <ion-option *ngFor="let usuario of usuarios" value="{{usuario.mm}},{{usuario.ohm_km}}">{{usuario.nombre}}</ion-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>No. Conductores</ion-label>
+        <ion-input [(ngModel)]="nocond"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Temperatura</ion-label>
+      <ion-input [(ngModel)]="tem"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>longitud en Km</ion-label>
+      <ion-input [(ngModel)]="long"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col offset-5 col-md-4>
+          <ion-item>
+            <ion-label floating>Distancia 2</ion-label>
+            <ion-input [(ngModel)]="distancia2"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset-8 col-4>
+          <ion-item>
+            <ion-label floating>Altura</ion-label>
+            <ion-input [(ngModel)]="altura"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset-4 col-md-4>
+          <ion-item>
+            <ion-label floating>Distancia 1</ion-label>
+            <ion-input [(ngModel)]="distancia1"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-md-4>
+          <ion-item>
+            <ion-label floating>Diametro 1</ion-label>
+            <ion-input [(ngModel)]="diametro1"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-md-4>
+          <ion-item>
+            <ion-label floating>Diametro 2</ion-label>
+            <ion-input [(ngModel)]="diametro2"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br><br><br>
+    <ion-grid padding>
+      <ion-row>
+        <button ion-button round full (click)="getParams(datRes, nocond,tem,long,distancia2,altura,distancia1,diametro1,diametro2);masDeDosConductores(1)">Calcular</button>
+        <button ion-button round full (click)="getParams(datRes, nocond,tem,long,distancia2,altura,distancia1,diametro1,diametro2);masDeDosConductores(2)">Perdidas</button>
+        <!-- <button ion-button round full (click)="getParams(datRes,nocond,tem,long,distancia2,altura,distancia1,diametro1,diametro2);modal()">Calcular</button> -->
+      </ion-row>
+    </ion-grid>
+</ion-content>

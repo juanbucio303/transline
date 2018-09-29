@@ -11,4 +11,66 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+  <button ion-button name="button" (click)="crearPDF()"> Generar PDF</button>
+  <button ion-button type="button" name="button" (click)="calcular()"> Aceptar</button>
+  <ion-item>
+    Voltaje en el lado de R:
+    <ion-badge item-end>
+      <h2>{{Vr | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Corriente en el lado de R:
+    <ion-badge item-end>
+      <h2>{{IR | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Voltaje en el lado de S:
+    <ion-badge item-end>
+      <h2>{{VS | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Corriente en el lado S:
+    <ion-badge item-end>
+      <h2>{{IS | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Followers
+    <ion-badge item-end>
+      <h2>{{angIr | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Followers
+    <ion-badge item-end>
+      <h2>{{angVs | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Followers
+    <ion-badge item-end>
+      <h2>{{angIs | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Perdidas en la Salida:
+    <ion-badge item-end>
+      <h2>{{Pe | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Eficiencia:
+    <ion-badge item-end>
+      <h2>{{n | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    Regulación de voltaje:
+    <ion-badge item-end>
+        <h2>{{Rv | number:'1.0-5'}}</h2>
+    </ion-badge>
+  </ion-item>
 </ion-content>
